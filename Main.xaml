@@ -80,6 +80,7 @@
       <AssemblyReference>UiPath.Database</AssemblyReference>
       <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap:VirtualizedContainerService.HintSize="706.666666666667,3000.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
@@ -213,13 +214,17 @@
                                   <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
                                 </umabh:HtmlContentArgument.RuntimeImages>
                                 <umabh:HtmlContentArgument.ValueMappings>
-                                  <scg:List x:TypeArguments="umabh:HtmlValueMappingBase" Capacity="0" />
+                                  <scg:List x:TypeArguments="umabh:HtmlValueMappingBase" Capacity="4">
+                                    <umabh:HtmlTextValueMapping Name="Surname" Value="[CurrentRow(&quot;surname&quot;)]" />
+                                    <umabh:HtmlTextValueMapping Name="AppointmentDate" Value="[CurrentRow(&quot;appointmentDate&quot;)]" />
+                                    <umabh:HtmlTextValueMapping Name="AppointmentTime" Value="[CurrentRow(&quot;appointmentTime&quot;)]" />
+                                  </scg:List>
                                 </umabh:HtmlContentArgument.ValueMappings>
                               </umabh:HtmlContentArgument>
                             </umab:SendMailX.HtmlBodyFromFile>
                           </umab:SendMailX>
-                          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="433.6,85.6" sap2010:WorkflowViewState.IdRef="MessageBox_9" Text="[CurrentRow(&quot;emailAddress&quot;).ToString()]" />
-                          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="433.6,85.6" sap2010:WorkflowViewState.IdRef="MessageBox_10" Text="[&quot;sent&quot;]" />
+                          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="434,85.3333333333333" sap2010:WorkflowViewState.IdRef="MessageBox_9" Text="[CurrentRow(&quot;emailAddress&quot;).ToString()]" />
+                          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="434,85.3333333333333" sap2010:WorkflowViewState.IdRef="MessageBox_10" Text="[&quot;sent&quot;]" />
                         </Sequence>
                       </ActivityAction>
                     </umab:GmailApplicationCard.Body>
